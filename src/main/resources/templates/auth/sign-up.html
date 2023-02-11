@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create account</title>
+</head>
+<body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+<div class="container">
+    <div class="row main-form">
+        <form name="f" method="post" th:action="@{/auth/sign-up}" th:object="${userRequest}">
+
+            <label for="username" class="cols-sm-2 control-label">Username</label>
+            <input type="text" th:field="*{username}" id="username" placeholder="Enter your Username"/>
+            <div style="color:red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username error!</div>
+
+            <br>
+            <br>
+
+            <label for="username" class="cols-sm-2 control-label">Username</label>
+            <input type="text" th:field="*{email}" id="email" placeholder="Enter your email"/>
+            <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email error!</div>
+
+            <br>
+            <br>
+            <label for="password" class="cols-sm-2 control-label">Password</label>
+            <input type="password" th:field="*{password}" id="password" placeholder="Enter your password"/>
+
+            <br>
+            <br>
+
+            <input type="submit" value="Sign Up!">
+
+        </form>
+        <div>
+            <a th:href="@{/auth/login}">Sign in!</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
