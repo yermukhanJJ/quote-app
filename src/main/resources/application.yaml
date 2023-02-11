@@ -1,0 +1,18 @@
+server:
+  port: 8181
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/quotedb
+    username: postgres
+    password: admin
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+quote:
+  app:
+    jwtSecret: secretKey
+    jwtExpirationMs: 86400000
