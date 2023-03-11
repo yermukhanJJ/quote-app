@@ -9,6 +9,7 @@ import com.kameleoon.trial.task.quote.repository.RoleRepository;
 import com.kameleoon.trial.task.quote.repository.UserRepository;
 import com.kameleoon.trial.task.quote.security.UserDetailsImpl;
 import com.kameleoon.trial.task.quote.security.jwt.jwtUtils;
+import com.kameleoon.trial.task.quote.util.AccountValidator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,6 +19,7 @@ import org.springframework.security.core.Transient;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -43,6 +45,7 @@ public class AccountService {
 
     public void registerUser(SignUpRequest request) {
         //Create new account
+
         Set<Role> roles = new HashSet<>();
         Role userRole = roleRepository.findByName("USER")
                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
