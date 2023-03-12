@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  postgres:
+    container_name: db_quote
+    ports:
+      - "5434:5432"
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=quotedb
+    image: postgres:15.2
+
+  app:
+    image: quote-app:latest
+    build: ./
+    container_name: 'edulink'
+    expose:
+      - 8181
+    ports:
+      - 8181:8181
+    environment:
+      - SPRING_DATA_SOURCE=jdbc:postgresql://postgres/quotedb
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=postgres
+
+volumes:
+  postgres-data:
