@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.kameleoon.trial.task.quote.QuoteApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 18.256 s - in com.kameleoon.trial.task.quote.QuoteApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 17.6 s - in com.kameleoon.trial.task.quote.QuoteApplicationTests
