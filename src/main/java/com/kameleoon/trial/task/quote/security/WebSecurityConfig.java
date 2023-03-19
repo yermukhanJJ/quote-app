@@ -62,10 +62,10 @@ public class WebSecurityConfig {
                  * add this block for restful app
                  * or remove this block for front part with thymeleaf
                  */
-                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler)
-                .and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
+//                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler)
+//                .and()
+//                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//                .and()
                 /**
                  * this block basic filter
                  */
@@ -73,11 +73,11 @@ public class WebSecurityConfig {
                 .antMatchers("/auth/login","/auth/sign-up","/error","/app/sign-in","/app/sign-up").permitAll()
                 .anyRequest().authenticated()
                 .and()
-//                .formLogin().loginPage("/auth/login")
-//                .loginProcessingUrl("/auth/login")
-//                .defaultSuccessUrl("/welcome",true)
-//                .failureUrl("/auth/login?error")
-//                .and()
+                .formLogin().loginPage("/auth/login")
+                .loginProcessingUrl("/auth/login")
+                .defaultSuccessUrl("/welcome",true)
+                .failureUrl("/auth/login?error")
+                .and()
                 .logout()
                 .logoutUrl("/logout");
 //                .logoutSuccessUrl("/auth/login");

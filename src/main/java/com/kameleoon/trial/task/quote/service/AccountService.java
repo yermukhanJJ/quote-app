@@ -47,8 +47,14 @@ public class AccountService {
         //Create new account
 
         Set<Role> roles = new HashSet<>();
+        if (!roleRepository.existsByName("USER")){
+            Role role = new Role();
+            role.setName("USER");
+            roleRepository.save(role);
+        }
+
         Role userRole = roleRepository.findByName("USER")
-                .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+                .get();
         roles.add(userRole);
 
         Users user = new Users(request.getUsername(), request.getEmail(), encoder.encode(request.getPassword()), LocalDateTime.now());
